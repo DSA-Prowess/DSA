@@ -39,7 +39,7 @@ class optimizedQueue:
         x = self.items[self.front]
         self.items[self.front] = None
         self.front = self.front + 1
-        return x
+        return x # returning the deleted element
     def peek(self):
         if self.isEmpty():
             raise EmptyQueueError("Queue is empty")
@@ -59,3 +59,13 @@ if __name__ == "__main__":
     # qu.display()
     # print(qu.peek())
     # print(qu.size())
+    qu = optimizedQueue()
+    qu.enque(10)
+    qu.enque(20)
+    qu.enque(30)
+    qu.display()
+    print(qu.peek())
+    qu.deque()
+    qu.display()
+    print(qu.peek())
+    print(qu.size())
