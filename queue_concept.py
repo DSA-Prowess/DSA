@@ -30,7 +30,22 @@ class optimizedQueue:
     def isEmpty(self):
         return self.items == []
     def size(self):
-        return len(self.items)
+        return len(self.items)- self.front
+    def enque(self, item):
+        self.items.append(item)
+    def deque(self):
+        if self.isEmpty():
+            raise EmptyQueueError("Queue is empty")
+        x = self.items[self.front]
+        self.items[self.front] = None
+        self.front = self.front + 1
+        return x
+    def peek(self):
+        if self.isEmpty():
+            raise EmptyQueueError("Queue is empty")
+        return self.items[self.front]
+    def display(self):
+        print(self.items)
 
 
 if __name__ == "__main__":
