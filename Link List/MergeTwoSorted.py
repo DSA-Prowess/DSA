@@ -17,41 +17,39 @@ class Solution:
                 list2 = list2.next
             dummyHead = dummyHead.next
         
-        # Attach the remaining part if any list is not exhausted
         if list1:
             dummyHead.next = list1
         if list2:
             dummyHead.next = list2
-        
-        return newHead.next
+        print(newHead.val)
+        return newHead.next      
 
-def print_linked_list(head: ListNode):
-    """Helper function to print the linked list"""
-    while head:
-        print(head.val, end=" -> " if head.next else "\n")
-        head = head.next
 
 if __name__ == "__main__":
-    # Create two linked lists
-    l1 = ListNode(1)    # 1 -> 2 -> 4
+    # Create a new solution object
+    sol = Solution()
+    # Create a new linked list
+    l1 = ListNode(1)    #1->2->4
     l1.next = ListNode(2)
     l1.next.next = ListNode(4)
-    
-    l2 = ListNode(1)    # 1 -> 3 -> 4
+    # while l1:
+    #     print(l1.val)
+    #     l1 = l1.next
+    # Create a new linked list
+    l2 = ListNode(1)    # 1->3->4
+    print(dir(l1))
     l2.next = ListNode(3)
-    l2.next.next = ListNode(4)
-    
-    # Print the original lists
-    print("Original List 1:")
-    print_linked_list(l1)
-    
-    print("Original List 2:")
-    print_linked_list(l2)
-    
+    ListNode(3).next = ListNode(4)
+    #l2.next.next = ListNode(4)
+    # while l2:
+    #     print(l2.val)
+    #     l2 = l2.next
     # Merge the two linked lists
-    sol = Solution()
-    merged_head = sol.mergeTwoLists(l1, l2)
-    
-    # Print the merged linked list
+    newNode  = sol.mergeTwoLists(l1, l2)
+    #print the merged linked list
     print("Merged linked list:")
-    print_linked_list(merged_head)
+    while newNode :
+        print(newNode.val)
+        newNode = newNode.next
+    # Output: 1 -> 1 -> 2 -> 3 -> 4 -> 4
+    # Explanation: The merged linked list is 1 -> 1 -> 2 -> 3 -> 4 -> 4
