@@ -1,0 +1,41 @@
+from typing import List
+from collections import Counter
+def find_all_anagrams(original: str, check: str) -> List[int]:
+    # WRITE YOUR BRILLIANT CODE HERE
+    result = []
+    check_len = len(check)
+    
+    check_counter = Counter(check)
+    
+
+    # Initialize a counter for the current window in the original string
+    window_counter = Counter(original[:check_len])
+    
+
+    # Check if the first window is an anagram
+    if window_counter == check_counter:
+        result.append(0)
+    
+    # Slide the window across the string
+    for i in range(check_len, len(original)):
+        # Add the new character to the window
+        window_counter[original[i]] += 1
+     
+        # Remove the character that's no longer in the window
+        left_char = original[i - check_len]
+        window_counter[left_char] -= 1
+        if window_counter[left_char] == 0:
+            del window_counter[left_char]  # Remove zero count entries for cleaner comparison
+        
+        # Check if the current window is an anagram
+        if window_counter == check_counter:
+            result.append(i - check_len + 1)
+    
+    return result
+
+if __name__ == "__main__":
+    original = "cbaebabacd"
+    check = "abc"
+    res = find_all_anagrams(original, check)
+    print(res)
+   # print(" ".join(map(str, res)))
