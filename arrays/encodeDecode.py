@@ -1,4 +1,6 @@
 class Solution:
+    # intuition encode the string based
+    # 
     def encode(self, strs):
         res = ""
         for s in strs:
@@ -24,5 +26,5 @@ class Solution:
 if __name__ == "__main__":
     sol = Solution()
     strs = ["hello", "world"]
-    print(sol.encode(strs))
+    # print(sol.encode(strs))
     print(sol.decode(sol.encode(strs)))
