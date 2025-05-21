@@ -23,6 +23,7 @@ class Solution:
                     # Check of third element duplicate is not required.
                     # while left < right and nums[right] == nums[right+1]: #Skip duplicates 
                     #     right -=1
+                    # [-2,-2,0,0,2,2]( left and right pointers )
                 elif total < 0:
                     left +=1
                 else:
