@@ -7,7 +7,7 @@ class Solution:
                 profit = prices[right] - prices[left]
                 maxP = max( maxP, profit)
             else:
-                left = right 
+                left = right  # found new minima istead of iterating and checking 
             right +=1
         return maxP
 

@@ -18,7 +18,13 @@ class Solution:
 
 
 
-
+if __name__ == "__main__":
+    s = "ABAB"
+    k = 2
+    s = "AABABBA"
+    k = 1
+    obj = Solution()
+    print(obj.characterReplacement(s,k))
 
 
 
