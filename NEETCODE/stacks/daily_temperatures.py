@@ -20,6 +20,7 @@ class DailyTemperatures:
             while stack and t > stack[-1][0]:
                 stack_t , stack_i = stack.pop()
                 res[stack_i] = (i - stack_i)
+                print(res)
             stack.append([t,i])
         
         return res 
